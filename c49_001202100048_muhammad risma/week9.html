@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asiggment</title>
+  </head>
+  <body>
+    <header>
+      <h1>Form</h1>
+    </header>
+    <input type="button" onclick="userPrompt()" value="Enter your user information" />
+    <p>output: <span id="userInfo">(incomplete information)</span>&nbsp;.</p>
+
+    <script>
+      function userPrompt()
+      {
+        var firstName = prompt("What is your first name?");
+        while (firstName.length == 0){
+            alert('Silahkan isi nama depan terlebih dahulu')
+            firstName = prompt("What is your first name?")
+            firstName = firstName.toLocaleLowerCase().replace(/\b[a-z]/g,function(firname){
+                return firname.toUpperCase()
+            })
+        }
+       
+        var middleName = prompt("What is your middle name?");
+        middleName = middleName.toLocaleLowerCase().replace(/\b[a-z]/g,function(midname){
+            return midname.toUpperCase()
+        })
+
+        var lastName = prompt("What is your last name?");
+        while (lastName.length == 0){
+            alert('Silahkan isi nama belakang terlebih dahulu')
+            lastName = prompt("What is your last name?")
+            lastName = lastName.toLocaleLowerCase().replace(/\b[a-z]/g,function(lsname){
+                return lsname.toUpperCase()
+            })
+        }
+
+        document.getElementById('userInfo').innerHTML = "Firstname : "+firstName + ", Middle Name :  " + middleName + ", Last Name : " + lastName;
+    }
+    </script>
+  </body>
+</html>
